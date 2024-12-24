@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Twinkling Stars and Message</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,21 +20,11 @@
             background-color: transparent;
             transition: background-color 0.3s ease-in-out;
             background-blend-mode: multiply;
-           
-            
-
-
             font-family: "Dancing Script", serif;
             font-optical-sizing: auto;
             font-weight: bolder;
             font-style: normal;
-                                    
-
-
- 
-  
-}
-        
+        }
 
         .container {
             position: relative;
@@ -55,6 +45,7 @@
             font-weight: bolder;
             transition: background-color 3s ease-in-out;
         }
+
         .btn:hover {
             background-color: black;
             color: white;
@@ -74,44 +65,18 @@
         }
 
         @keyframes moveText {
-            0% {
-                left: 100%; 
-                
-            }
-            100% {
-                left: -100%; 
-            }
-
-            0%{
-                color:#fff222
-            }
-            10%{
-                color:blue;
-            }
-            20%{
-                color: crimson;
-            }
-            30%{
-                color: cyan;
-            }
-            40%{
-                color: darkolivegreen;
-            }
-            50%{
-                color: lightgreen;
-            }
-            60%{
-                color:purple
-            }
-            70%{
-                color:darksalmon
-            }
-            80%{
-                color:tomato;
-            }
-            90%{
-                color:yellow;
-            }
+            0% { left: 100%; }
+            100% { left: -100%; }
+            0% { color: #fff222; }
+            10% { color: blue; }
+            20% { color: crimson; }
+            30% { color: cyan; }
+            40% { color: darkolivegreen; }
+            50% { color: lightgreen; }
+            60% { color: purple; }
+            70% { color: darksalmon; }
+            80% { color: tomato; }
+            90% { color: yellow; }
         }
 
         .star {
@@ -144,6 +109,14 @@
             50% {
                 opacity: 1;
                 transform: scale(1);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            body {
+                width: 1200px;
+                overflow-x: hidden;
+                margin: auto;
             }
         }
     </style>
