@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twinkling Stars and Message</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://t3.ftcdn.net/jpg/10/70/16/36/360_F_1070163640_MEwgSrwlfoHAa8Fm4ZWpPzgJnFd3Fc3d.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            background-color: transparent;
+            transition: background-color 0.3s ease-in-out;
+            background-blend-mode: multiply;
+           
+            
+
+
+            font-family: "Dancing Script", serif;
+            font-optical-sizing: auto;
+            font-weight: bolder;
+            font-style: normal;
+                                    
+
+
+ 
+  
+}
+        
+
+        .container {
+            position: relative;
+            z-index: 2;
+            margin: 70px;
+            padding: 80px;
+        }
+
+        .container button {
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            color:black;
+            font-weight: bolder;
+            transition: background-color 3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        #msg {
+            color: white;
+            font-weight: bold;
+            font-size: 5rem;
+            position: fixed;
+            top: 50%;
+            left: 100%; 
+            transform: translateY(-50%);
+            white-space: nowrap;
+            z-index: 3;
+            animation: moveText 7s linear infinite; 
+        }
+
+        @keyframes moveText {
+            0% {
+                left: 100%; 
+                
+            }
+            100% {
+                left: -100%; 
+            }
+
+            0%{
+                color:#fff222
+            }
+            10%{
+                color:blue;
+            }
+            20%{
+                color: crimson;
+            }
+            30%{
+                color: cyan;
+            }
+            40%{
+                color: darkolivegreen;
+            }
+            50%{
+                color: lightgreen;
+            }
+            60%{
+                color:purple
+            }
+            70%{
+                color:darksalmon
+            }
+            80%{
+                color:tomato;
+            }
+            90%{
+                color:yellow;
+            }
+        }
+
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border: 2px solid gold;
+            clip-path: polygon(
+                50% 0%, 
+                61% 35%, 
+                98% 35%, 
+                68% 57%, 
+                79% 91%, 
+                50% 70%, 
+                21% 91%, 
+                32% 57%, 
+                2% 35%, 
+                39% 35%
+            );
+            opacity: 0.5;
+            animation: twinkle 1s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 70% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="yellow" class="btn" onclick="yellow()">Yellow</button>
+        <button id="red" class="btn" onclick="red()">Red</button>
+        <button id="blue" onclick="blue()" class="btn">Blue</button>
+        <button id="black" onclick="black()" class="btn">Black</button>
+        <button id="green" onclick="green()" class="btn">Green</button>
+        <button id="normal" onclick="normal()" class="btn">Reset</button>
+    </div>
+
+    <div id="msg"></div>
+
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            const randomSize = Math.random() * 10 + 5; 
+            star.style.width = `${randomSize}px`;
+            star.style.height = `${randomSize}px`;
+
+            const randomDelay = Math.random() * 3; 
+            star.style.animationDelay = `${randomDelay}s`;
+
+            star.style.left = `${randomX}px`;
+            star.style.top = `${randomY}px`;
+
+            document.body.appendChild(star);
+        }
+
+        function yellow() {
+            document.body.style.backgroundColor = "yellow";
+            document.getElementById("msg").innerHTML = "Happy Christmas";
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        }
+
+        function red() {
+            document.body.style.backgroundColor = "red";
+            document.getElementById("msg").innerHTML = "Happy Christmas";
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        }
+
+        function blue() {
+            document.body.style.backgroundColor = "blue";
+            document.getElementById("msg").innerHTML = "Happy Christmas";
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        }
+
+        function black() {
+            document.body.style.backgroundColor = "black";
+            document.getElementById("msg").innerHTML = "Happy Christmas";
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        }
+
+        function green() {
+            document.body.style.backgroundColor = "green";
+            document.getElementById("msg").innerHTML = "Happy Christmas";
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        }
+
+        function normal(){
+            document.body.style.backgroundColor = "transparent"; 
+            document.getElementById("msg").innerHTML = ""; 
+          
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => star.remove());
+        }
+    </script>
+</body>
+</html>
